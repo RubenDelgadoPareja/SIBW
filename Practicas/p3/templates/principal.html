@@ -1,0 +1,41 @@
+{% extends "padre.html" %}
+        {% block cabecera %}
+            {{parent()}}
+        {% endblock %}
+        {% block central %}
+            <table class="tabla">
+                <tr>
+                    <td>
+                        <a class="evento" href="evento.php?ev=1"><img id="foto" src="images/taric.jpeg" alt="Taric" ></a>
+                    </td>
+                    <td>
+                        <a class="evento" href="evento.php?ev=2"><img id="foto" src="images/fizz.jpeg" alt="Fizz" ></a>
+                    </td>
+                    <td>
+                        <a class="evento" href="evento.php?ev=3"><img id="foto" src="images/yasuo.jpeg" alt="Yasuo" ></a>
+                    </td>
+                   </tr>
+                   <tr>
+                    <td>
+                        <a class="evento" href="evento.php?ev=4"><img id="foto" src="images/diana.jpeg" alt="Diana" ></a>
+                    </td>
+                    <td>
+                        <a class="evento" href="evento.php?ev=5"><img id="foto" src="images/talon.jpeg" alt="Talon" ></a>
+                    </td>
+                    <td>
+                        <a class="evento" href="evento.php?ev=6"><img id="foto" src="images/cassiopeia.jpeg" alt="Cassiopeia" ></a>
+                    </td>
+                   </tr>
+                   <tr>
+                    <td>
+                        <a class="evento" href="evento.php?ev=7"><img id="foto" src="images/ekko.jpeg" alt="Ekko" ></a>
+                    </td>
+                    <td>
+                        <a class="evento" href="evento.php?ev=8"><img id="foto" src="images/kata.jpeg" alt="Katarina" ></a>
+                    </td>
+                    <td>
+                        <a class="evento" href="evento.php?ev=9"><img id="foto" src="images/kassa.jpeg" alt="Kassadin"></a>
+                    </td>
+                   </tr>
+            </table>
+        {% endblock %}

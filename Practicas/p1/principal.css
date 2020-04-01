@@ -1,0 +1,112 @@
+/* Damos formato a cada una de las partes */ 
+body{
+  background-image: url("grieta.jpeg");
+  background-position: center;
+  background-size: cover;
+}
+header {
+
+  height: 40%;
+  text-align: center;
+  color: yellow;
+  background-color:transparent;
+  margin-left: 1%;
+  margin-right:  1%;
+  margin-bottom: 1%;
+  
+}
+h1{
+  text-align: center;
+  
+}
+nav{
+  height: 10%;
+  background-color:transparent;
+  text-align: left;
+  
+}
+.boton{
+  color: black;
+  display: inline;
+  font-size: 60px;
+  padding: 14px 16px;
+  text-decoration: none;
+  
+}
+aside{
+  text-align: center;
+  border: 5px;
+  border-radius: 10px;
+  background-color: darkslategray;
+  color:black;
+  float: left;
+  width: 20%;
+  height: 75%;
+  margin-left: 1%;
+
+}
+#foto{
+  width:430px;
+  height:212px;
+}
+table{
+  width: 75%;
+  height: 75%;
+  color: red;
+  float: right;
+  margin-right:  1%;
+  background-color: transparent;
+}
+td{
+  text-align: center;
+}
+footer{
+  color: white;
+  background-color: transparent;
+  text-align: center;
+  height: 25%;
+  clear: both;
+  margin-left: 1%;
+  margin-right:  1%;
+  margin-top: 40%;
+
+
+}
+/* Hacemos responsive el menu y el logo */
+@media screen and (max-width: 600px) {
+  .menu{
+    float: none;
+  }
+  #logo{
+    float: left;
+    max-width: 80%;
+    padding: 15px;
+}
+}
+/* Hacemos responsive la seccion y las fotos */
+@media screen and (max-width: 1700px) {
+  .evento {
+      margin-bottom: 150px;
+  }
+
+  #foto{
+      float: left;
+      max-width: 80%;
+      padding: 15px;
+  }
+}
+/* Hacemos responsive los eventos y los botones */
+@media screen and (max-width: 800px) {
+  .evento {
+      padding-bottom: 45%;
+  }
+
+  .button {
+      margin: 5px;
+  }
+}
+
+
+  
+
+  

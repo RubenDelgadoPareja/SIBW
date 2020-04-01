@@ -1,0 +1,114 @@
+{% extends "padre.html" %}
+
+    {% block style %}
+        <script type="text/javascript" src="/scripts/script.js"></script>
+        <link rel="stylesheet" type="text/css" href="/styles/evento.css">
+    {% endblock %}
+
+    {% block head %}
+        <title>
+            Evento
+        </title>
+    {% endblock %}
+
+
+        {% block central %}
+            <h1>
+                {{evento['nombre']}} 
+                
+            </h1>
+            <aside style="float: right;">
+                <a href="/index.php"><img id="foto" src="{{evento['imagen']}}" alt="Taric" style="float:right;"></a>
+                <!-- <a href="/index.php"><img id="foto" src="/images/Lor.jpeg" alt="Legends of Runaterra" style="float:right;"></a> -->
+                <div style="float: left; ">
+                    <br>
+                    <button id="botón" onclick="Mostrar_Comentarios()">Comentarios</button>
+                </div>
+            </aside>
+
+                <p>
+                    Autor: Rubén Delgado Pareja
+                </p>
+
+                <p>
+                    Facción:
+                    {{evento['lugar']}}
+                </p>
+
+                <p>
+                    Fecha:
+                    {{evento['fecha']}}
+                </p>
+
+                <p>
+                    Imprimir evento: <a href="/templates/imprimir.html">Evento Imprimir</a>
+                </p>
+                <p style="width: 69%;">  
+                    Historia:<br>
+                        {{evento['historia']}}
+                        <!--TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO<br>
+                        TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO<br>
+                        TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO<br>
+                        TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO<br>
+                        TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO<br>
+                        TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO<br>
+                        TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO<br> -->
+                </p>
+                <p>
+                    Enlace a la pagina de RIOT: <a href="{{evento['enlace']}}">Riot Games</a>
+                </p>
+
+                <h2> ASPECTOS: </h2>
+
+                
+                <div class="container">
+
+                    <a class="prev" onclick="anterior()">❮</a>
+                    <a class="next" onclick="siguiente()">❯</a>
+                    <img id="aspectos"  style="width:75%; text-align:center; padding-left: 170px;">
+
+
+                </div>
+
+                
+
+                <div class="caja_de_comentarios oculto" id="caja_de_comentarios">
+                    <h1>
+                        <b>COMENTARIOS</b>
+                    </h1>
+                    <ul id="lista_com">
+                        {% for comentarios in comentario %}
+                        <div class="comentarios">
+                            <p class="nombre">{{comentarios[0]}}</p>
+                            <p class="texto_comentario">{{comentarios[2]}}</p>
+                            <p class="fecha">{{comentarios[1]|date("d \\d\\e F \\d\\e Y")}}</p>
+                        </div>
+                        {% endfor %}
+                        <!-- <div class="comentarios">
+                            <p class="nombre">{{comentarios[0]}}</p>
+                            <p class="texto_comentario">{{comentarios['texto']}}</p>
+                            <p class="fecha">{{comentarios['fecha']}}</p>
+                        </div> -->
+                    </ul>
+                    <button id="botón" style="margin-left: 50px;" onclick="Mostrar_Caja()" >Comentar</button>
+
+
+                    
+                    
+                </div>
+                <div class="formato oculto" id="formato" >
+                    <h3><b>Escribe tu comentario</b></h3><br>
+                    Nombre:
+                    <input type="text" id="nombre" placeholder="Introduzca su nombre"/><br>
+                    Email:
+                    <input type="text" id="email" placeholder="Introduzca su email"/><br>
+                    Comentario:<br>
+                    <textarea rows="5" col="30" type="text" style="width: 500px; height: 200px; "id="texto_comentario" oninput="censura()" placeholder="Introduzca su comentario"></textarea><br>
+                    <input type="button" value="Aceptar" onclick="Aceptar_Comentario()">
+
+                </div>
+                <input id="galeria" style="visibility: hidden;" value="{% for imagen in galeria %} {{ imagen }} {% endfor %}"/>
+                <input id="censura" style="visibility: hidden;" value="{% for palabra in censura %} {{ palabra }} {% endfor %}"/>
+                
+            {% endblock %}
+                
