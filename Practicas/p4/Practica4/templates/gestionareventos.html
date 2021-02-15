@@ -1,0 +1,60 @@
+ 
+{% extends "padre.html" %}
+{% block central %}
+    {% block style %}
+        <script type="text/javascript" src="/scripts/script.js"></script>
+        <link rel="stylesheet" type="text/css" href="/styles/evento.css">
+    {% endblock %}
+    {% if usuario['gestor'] == 1 or usuario['superusuario'] == 1 %}
+        {% for evento in eventos %}
+            <h1>
+                {{evento['nombre']}} 
+                
+            </h1>
+            <aside style="float: right;">
+                <a href="/index.php"><img id="foto" src="{{ evento[5] }}" style="float:right;"></a>
+                <!-- <a href="/index.php"><img id="foto" src="/images/Lor.jpeg" alt="Legends of Runaterra" style="float:right;"></a> -->
+            </aside>
+
+                <p>
+                    Autor: Rubén Delgado Pareja
+                </p>
+                <p>
+                    NOMBRE:
+                    {{ evento[1] }}
+                </p>
+
+                <p>
+                    Facción:
+                    {{evento[2]}}
+                </p>
+
+                <p>
+                    Fecha:
+                    {{evento[3]}}
+                </p>
+
+                <p>
+                    Imprimir evento: <a href="/templates/imprimir.html">Evento Imprimir</a>
+                </p>
+                <p style="width: 69%;">  
+                    Historia:<br>
+                        {{evento[4]}}
+                        <!--TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO<br>
+                        TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO<br>
+                        TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO<br>
+                        TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO<br>
+                        TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO<br>
+                        TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO<br>
+                        TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO TEXTO DE EJEMPLO<br> -->
+                </p>
+                <p>
+                    Enlace a la pagina de RIOT: <a href="{{evento[6]}}">Riot Games</a>
+                </p>
+                <a href="/gestioneventos.php?ev={{ evento[0] }}&delete=true"><img style="width: 2.5%;" src="/images/basura.jpg"/></a>
+                <a href="/modificarevento.php?ev={{ evento[0] }}"><img style="width: 2.5%;" src="/images/lapiz.jpg"/></a>
+            {% endfor %}
+        </div>
+    </article>
+    {% endif %}
+{% endblock %}

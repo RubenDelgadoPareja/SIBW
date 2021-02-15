@@ -1,0 +1,41 @@
+{% extends "padre.html" %}
+{% block style %}
+        <script type="text/javascript" src="/scripts/script.js"></script>
+        <link rel="stylesheet" type="text/css" href="/styles/evento.css">
+    {% endblock %}
+    {% block central %}
+        <article class="formLogin">
+            <div id="formularioModEvento">
+                <h3>Modificando Evento</h3><br>
+
+                <form action="modificarevento.php?ev={{ evento['id'] }}" method="post" id="modificarEvento" enctype="multipart/form-data">
+                    <strong>Nombre:</strong> {{ evento['nombre'] }}<br>
+                    <strong>Cambiar nombre</strong><br>
+                    <input type="text" name="name" /><br><br>
+
+                    <strong>Lugar:</strong> {{ evento['lugar'] }}<br>
+                    <strong>Cambiar lugar</strong><br>
+                    <input type="text" name="lugar" /><br><br>
+
+                    <strong>Fecha:</strong> {{ evento['fecha'] }}<br>
+                    <strong>Cambiar fecha</strong><br>
+                    <input type="date" name="date" /><br><br>
+
+                    <strong>Añadir <em>(separadas por comas)</em></strong><br>
+                    <input type="text" name="etiquetas" /><br><br>
+
+                    <strong>Enlace:</strong> {{ evento['enlace'] }}<br>
+                    <strong>Cambiar enlace</strong><br>
+                    <input type="text" name="enlace" /><br><br>
+
+                    <strong>Modificar Imagen</strong><br>
+                    <input type="file" name="imagen"/><br><br>
+
+                    <strong>Historia:</strong> {{ evento['historia'] }}<br>
+                    <strong>Modificar historia</strong><br>
+                    <textarea name="historia" form="modificarEvento"></textarea><br><br>
+                    <input type="submit" value="Modificar Evento" />
+                </form>
+            </div>
+        </article>
+    {% endblock %}

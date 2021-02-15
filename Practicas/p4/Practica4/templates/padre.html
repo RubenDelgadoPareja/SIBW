@@ -1,0 +1,83 @@
+<html>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Linkeamos el html con el css-->
+    {% block style %}
+    <link rel="stylesheet" type="text/css" href="/styles/principal.css">
+    {% endblock %}
+    <head>
+        <!-- Titulo de la pagina-->
+        {% block head %}
+        <title>
+            Principal
+        </title>
+        {% endblock %}
+    </head>
+    <body>
+
+        <header>
+            {% block cabecera %}
+            <!-- Logo-->
+            <h1>
+                <a href="index.php"><img id="logo" src="/images/logo.png" alt="League of Legends"></a>
+            </h1>
+            <!-- Menu-->
+            <nav class="menu">
+                <ul>
+                    <a class="boton" href="index.php">Estadisticas</a>
+                    <a class="boton" href="index.php">Campeones</a>
+                    <a class="boton" href="index.php">Runas</a>
+                    <a class="boton" href="index.php">Objetos</a>
+                    {% if identificado == false %}
+                    <a class="boton" href="login.php">Iniciar Sesión</a>
+                    <a class="boton" href="register.php">Registrarse</a>
+                    {% endif %}
+                    {% if identificado == true %}
+                        <a class="boton" href="perfil.php">Perfil</a>
+                        {% if usuario['moderador'] == 1 or usuario['gestor'] == 1 or usuario['superusuario'] == 1 %}
+                            <a class="boton" href="moderacion.php">Moderación</a>
+                        {% endif %}
+
+                        {% if usuario['gestor'] == 1  or usuario['superusuario'] == 1 %}
+                            <a class="boton" href="admin.php">Administración</a>
+                        {% endif %}
+
+                        <a class="boton" href="logout.php">Cerrar Sesión</a>
+
+                    {% endif %}
+
+
+                </ul>
+            </nav>
+            {% endblock %}
+        </header>
+        <!-- La barra lateral-->
+        {% block lateral %}
+        <aside>
+            <b>Temas de interes:</b>
+            <p>
+                Links del meta actual: <a href="https://na.op.gg/champion/statistics">Tier List</a>
+            </p>
+            <p>
+                Link sobre el último parche: <a href="https://www.youtube.com/watch?v=aieETwY0PJc">Parche 10.5</a>
+            </p>
+        </aside>
+        {% endblock %}
+
+        <!-- Tabla con los eventos-->
+        <section>
+            {% block central %}
+                <p>
+                    Parte central de la plantilla
+                </p>
+            {% endblock %}
+        </section>
+    </body>
+    <!-- Pie de Página-->
+    <footer>
+        2020 © Rubén Delgado Pareja Sistemas de Información Basado en Web 
+        <p>
+            Principal
+        </p> 
+    </footer>
+</html>

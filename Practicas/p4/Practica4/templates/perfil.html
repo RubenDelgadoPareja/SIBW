@@ -1,0 +1,27 @@
+{% extends "padre.html" %}
+{% block style %}
+        <script type="text/javascript" src="/scripts/script.js"></script>
+        <link rel="stylesheet" type="text/css" href="/styles/evento.css">
+    {% endblock %}
+    {% block central %}
+        <article class="formLogin">
+            <div id="perfil">
+                Bienvenido a tu perfil, {{ usuario['nombre'] }}<br><br>
+
+                <form action="perfil.php" method="post">
+                    Cambiar nombre de usuario:<br>
+                    <input type="text" name="newName" /><br><br>
+    
+                    Cambiar contraseña:<br>
+                    <input type="password" name="newPass" /><br><br>
+    
+                    Confirmar contraseña:<br>
+                    <input type="password" name="newPassConfirm" /><br><br>
+    
+                    <em>Para verificar los cambios es necesario que introduzcas tu contraseña actual</em><br>
+                    Contraseña actual:<br> <input type="password" name="password" required/><br><br>
+                    <input type="submit" value="Guardar cambios" />
+                </form>
+            </div>
+        </article>
+    {% endblock %}

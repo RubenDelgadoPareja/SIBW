@@ -1,0 +1,22 @@
+{% extends "padre.html" %}
+{% block style %}
+        <script type="text/javascript" src="/scripts/script.js"></script>
+        <link rel="stylesheet" type="text/css" href="/styles/evento.css">
+    {% endblock %}
+    {% block central %}
+        <article class="formLogin">
+            <h3>Modificando comentario</h3><br>
+            <strong>Autor:</strong> {{ comentario['autor'] }}<br><br>
+            <strong>Contenido actual:</strong> {{ comentario['texto'] }}<br><br>
+            <form action="modificarcomentario.php?ev={{ comentario['idEv'] }}&comentario={{ comentario['id'] }}" method="post" id="modificar" name="formulario">
+                <strong>Modificar comentario:</strong><br>
+                <textarea name="comentario" form="modificar" oninput="censura()" required></textarea><br><br>
+                <input type="submit" value="Modificar" />
+            </form>
+        </article>
+
+        <input id="censura" style="visibility:hidden;" value="
+            {% for palabra in censura %}
+            {{ palabra }}
+            {% endfor %}"/>
+    {% endblock %}

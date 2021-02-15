@@ -1,0 +1,23 @@
+{% extends "padre.html" %}
+{% block style %}
+        <script type="text/javascript" src="/scripts/script.js"></script>
+        <link rel="stylesheet" type="text/css" href="/styles/evento.css">
+    {% endblock %}
+{% block central %}
+    {% if usuario['gestor'] == 1 or usuario['superusuario'] == 1 %}
+    <article class="formLogin">
+        <div id="formularioAddEvento">
+            <form action="añadirevento.php" method="post" id="addevento" enctype="multipart/form-data">
+                Nombre del Evento<br> <input type="text" name="nombre" required/><br><br>
+                Lugar<br> <input type="text" name="lugar" required/><br><br>
+                Fecha<br> <input type="date" name="fecha" required/><br><br>
+                <!-- Etiquetas <em>(separadas por comas)</em><br> <input type="text" name="etiquetas" required/><br><br> --->
+                Historia<br> <textarea name="historia" form="addevento" required></textarea><br><br>
+                Imagen<br> <input type="file" name="imagen" required/><br><br>
+                Enlace<br> <input type="text" name="enlace" required/><br><br>
+                <input type="submit" value="Publicar Evento" />
+            </form>
+        </div>
+    </article>
+    {% endif %}
+{% endblock %}

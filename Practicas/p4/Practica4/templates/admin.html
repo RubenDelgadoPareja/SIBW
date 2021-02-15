@@ -1,0 +1,23 @@
+ 
+{% extends "padre.html" %}
+{% block style %}
+        <script type="text/javascript" src="/scripts/script.js"></script>
+        <link rel="stylesheet" type="text/css" href="/styles/evento.css">
+    {% endblock %}
+{% block central %}
+    {% if usuario['gestor'] == 1 or usuario['superusuario'] == 1 %}
+    <article class="formLogin">
+        <div id="zonaAdmin">
+            Bienvenido a la zona de administración, {{ usuario['nombre'] }}<br><br>
+        
+        <div id="botones">
+            <a href="/añadirevento.php" class="button" >Añadir Evento</a><br>
+            <a href="/gestioneventos.php" class="button">Gestión de Eventos</a><br>
+            {% if usuario['superusuario'] == 1 %}
+                <a href="/permisos.php" class="button" >Gestión de Permisos</a>
+            {% endif %}
+        </div>
+        </div>
+    </article>
+    {% endif %}
+{% endblock %}

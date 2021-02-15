@@ -1,0 +1,13 @@
+{% extends "padre.html" %}
+        {% block cabecera %}
+            {{parent()}}
+        {% endblock %}
+        {% block central %}
+        <article class="grid">
+        {% for evento in eventos %}
+            <div class="item">
+                <p><a href="evento.php?ev={{ evento[0] }}"><img id="foto" style="padding-left: 25px;" src="{{ evento[5] }}"></a>
+            </div>
+        {% endfor %}
+        </article>
+        {% endblock %}

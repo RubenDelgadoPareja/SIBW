@@ -1,0 +1,15 @@
+{%extends "padre.html" %}
+{% block style %}
+<script type="text/javascript" src="/scripts/script.js"></script>
+<link rel="stylesheet" type="text/css" href="/styles/evento.css">
+{% endblock %}
+    {% block central %}
+    <article class="formLogin" >
+            <form action="register.php" method="post">
+                Nombre de usuario:<br> <input type="text" name="nombre" /><br>
+                Contraseña: <br> <input type="password" name="contraseña" /><br><br>
+                <input type="submit" value="Registrarse" />
+            </form>
+    </article>
+    {% endblock %}
+

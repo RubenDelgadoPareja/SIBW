@@ -1,0 +1,24 @@
+{% extends "padre.html" %}
+    {% block style %}
+        <script type="text/javascript" src="/scripts/script.js"></script>
+        <link rel="stylesheet" type="text/css" href="/styles/evento.css">
+    {% endblock %}
+    {% block central %}
+        <h1>
+            <b>COMENTARIOS</b>
+        </h1>
+        <ul id="lista_com">
+            {% for comentarios in comentario %}
+            <div class="comentarios">
+                <p class="nombre">{{comentarios[2]}}</p>
+                <p class="texto_comentario">{{comentarios[4]}}</p>
+                <p class="fecha">{{comentarios[3]|date("d \\d\\e F \\d\\e Y")}}</p>
+                {% if comentarios[5] == 1 %}
+                <p><em>Mensaje editado por un moderador</em></p>
+                {% endif %}
+                <a href="/evento.php?ev={{ comentarios[1] }}&comentario={{ comentarios[0] }}&delete=true"><img style="width: 2.5%;" src="/images/basura.jpg"></a>
+                <a href="/modificarcomentario.php?ev={{ comentarios[1] }}&comentario={{ comentarios[0] }}"><img style="width: 2.5%;" src="/images/lapiz.jpg"></a>
+            </div>
+            {% endfor %}
+        </ul>
+    {% endblock %}

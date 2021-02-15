@@ -1,0 +1,58 @@
+ 
+{% extends "padre.html" %}
+{% block style %}
+        <script type="text/javascript" src="/scripts/script.js"></script>
+        <link rel="stylesheet" type="text/css" href="/styles/evento.css">
+    {% endblock %}
+{% block central %}
+    {% if usuario['superusuario'] == 1 %}
+    <article class="formLogin">
+        <div id ="defaultcomm">
+            {% for user in usuarios %}
+                <div class="comen">
+                    <p><strong>ID: </strong> {{ user[0] }}</p>
+                    <p><strong>Nombre: </strong> {{ user[1] }}</p>
+                    {% if user[3] == 1 or user[4] == 1 or user[5] == 1 %}
+                        <p><strong>Permisos de Moderación: </strong> Sí</p>
+                    {% else %}
+                        <p><strong>Permisos de Moderación: </strong> No</p>
+                    {% endif %}
+
+                    {% if user[4] == 1 or user[5] == 1 %}
+                        <p><strong>Permisos de Gestión: </strong> Sí</p>
+                    {% else %}
+                        <p><strong>Permisos de Gestión: </strong> No</p>
+                    {% endif %}
+
+                    {% if user[5] == 1 %}
+                        <p><strong>Permisos de Superusuario: </strong> Sí</p>
+                    {% else %}
+                        <p><strong>Permisos de Superusuario: </strong> No</p>
+                    {% endif %}
+
+                    <div id="botones2">
+                        {% if user[3] == 1 %}
+                            <a href="/permisos.php?idUser={{ user[0] }}&moderator=false" class="button" id="button1">Revocar Moderador</a>
+                        {% else %}
+                            <a href="/permisos.php?idUser={{ user[0] }}&moderator=true" class="button" id="button1">Otorgar Moderador</a>
+                        {% endif %}
+                        
+                        {% if user[4] == 1 %}
+                            <a href="/permisos.php?idUser={{ user[0] }}&gestor=false" class="button" id="button1">Revocar Gestor</a>
+                        {% else %}
+                            <a href="/permisos.php?idUser={{ user[0] }}&gestor=true" class="button" id="button1">Otorgar Gestor</a>
+                        {% endif %}
+
+                        {% if user[5] == 1 %}
+                            <a href="/permisos.php?idUser={{ user[0] }}&super=false" class="button" id="button1">Revocar Superusuario</a>
+                        {% else %}
+                            <a href="/permisos.php?idUser={{ user[0] }}&super=true" class="button" id="button1">Otorgar Superusuario</a>
+                        {% endif %}
+                    </div>
+                </div>
+                <hr>
+            {% endfor %}
+        </div>
+    </article>
+    {% endif %}
+{% endblock %}
